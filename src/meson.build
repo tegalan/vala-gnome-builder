@@ -2,6 +2,8 @@ gkbbi_sources = [
   'application.vala',
   'window.vala',
   'headerbar.vala',
+  'wordlist.vala',
+  'worddetail.vala',
 ]
 
 gkbbi_deps = [
