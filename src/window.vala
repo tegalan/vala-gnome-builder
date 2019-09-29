@@ -16,14 +16,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Gkbbi {
-	[GtkTemplate (ui = "/id/sucipto/gkbbi/window.ui")]
-	public class Window : Gtk.ApplicationWindow {
-		[GtkChild]
-		Gtk.Label label;
+public class Gkbbi.Window : Gtk.ApplicationWindow {
 
-		public Window (Gtk.Application app) {
-			Object (application: app);
-		}
+	public Window (Gtk.Application app) {
+		Object (application: app);
+	}
+
+	construct {
+	    var header = new HeaderBar();
+
+	    this.set_titlebar(header);
+	    this.set_default_size (400, 600);
+	    this.set_position(Gtk.WindowPosition.CENTER);
 	}
 }

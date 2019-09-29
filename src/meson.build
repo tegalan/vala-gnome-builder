@@ -1,6 +1,7 @@
 gkbbi_sources = [
-  'main.vala',
+  'application.vala',
   'window.vala',
+  'headerbar.vala',
 ]
 
 gkbbi_deps = [
