@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=gkbbi
+Exec=gkbbi
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

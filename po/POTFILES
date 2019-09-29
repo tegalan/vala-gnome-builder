@@ -1,0 +1,7 @@
+data/id.sucipto.gkbbi.desktop.in
+data/id.sucipto.gkbbi.appdata.xml.in
+data/id.sucipto.gkbbi.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
