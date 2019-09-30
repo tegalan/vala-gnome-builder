@@ -17,24 +17,25 @@
  */
 
 public class Gkbbi.Window : Gtk.ApplicationWindow {
-    private Gtk.Stack stacks;
+    public Gtk.Stack stacks;
+    public HeaderBar header;
 
 	public Window (Gtk.Application app) {
 		Object (application: app);
 	}
 
 	construct {
-	    var header = new HeaderBar();
+	    header = new HeaderBar();
 
 	    this.set_titlebar(header);
-	    this.set_default_size (300, 400);
+	    this.set_default_size (400, 450);
 	    this.set_position(Gtk.WindowPosition.CENTER);
 
 	    // Set Main Stack
 	    stacks = new Gtk.Stack();
 	    //stacks.add_named(new Gtk.Label("First stack"), "first");
 	    stacks.add_named(new Stack.Wordlist(stacks), "wordlist");
-	    stacks.add_named(new Stack.WordDetail(), "worddetail");
+	    stacks.add_named(new Stack.WordDetail(this), "worddetail");
 
 	    this.add(stacks);
 	}

@@ -10,18 +10,30 @@ public class Gkbbi.Stack.Wordlist : ScrolledWindow {
 
     construct {
         lists = new ListBox();
-        //lists.
+        lists.activate_on_single_click = true;
+        lists.selection_mode = Gtk.SelectionMode.SINGLE;
+
         for (var x = 1; x < 100; x++) {
             var row = new WordItem();
+            var sep = new Separator(Orientation.VERTICAL);
+
             lists.add(row);
-            lists.add(new Separator(Orientation.VERTICAL));
+            //lists.add(sep);
         }
+
+        lists.row_activated.connect((row) => {
+                stdout.printf("Clicked %d\n".printf(row.get_index()));
+                stack.visible_child_name = "worddetail";
+        });
+
 
         this.add(lists);
     }
 }
 
 public class Gkbbi.Stack.WordItem : Gtk.ListBoxRow {
+    public signal void click ();
+
     construct {
         var vbox = new Box(Orientation.VERTICAL, 0);
         vbox.margin_top = 4;
@@ -40,8 +52,5 @@ public class Gkbbi.Stack.WordItem : Gtk.ListBoxRow {
         this.add(vbox);
         this.activatable = true;
         this.selectable = false;
-        this.activate.connect(() => {
-            stdout.printf("Clicked\n");
-        });
     }
 }
